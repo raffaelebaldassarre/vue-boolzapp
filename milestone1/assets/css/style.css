@@ -23,7 +23,7 @@
     width: 1430px;
     height: 850px;
     position: relative;
-    top: -70px;
+    top: -85px;
     justify-content: center;
     align-items: center;
 }
@@ -34,8 +34,57 @@
     width:40%;
 }
 
+.nameUser{
+    height: 10%;
+    background-color: pink;
+}
+
+.notification{
+    height: 13%;
+    background-color: turquoise;
+}
+
+.contactSearch{
+    height: 7%;
+    background-color: wheat;
+}
+
+.contactsUser{
+    height: 70%;
+    background-color: yellow;
+}
+
 .chat{
     height: 100%;
     background-color: red;
     width: 60%;
+}
+
+.contactChat{
+    height: 10%;
+    background-color: pink;
+}
+
+.viewChat{
+    height: 80%;
+    background-color: blueviolet;
+}
+
+.textChat{
+    height: 10%;
+    background-color: cornflowerblue;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputType{
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+
+.inputText{
+    width: 100%;
+    height: 100%;
 }
