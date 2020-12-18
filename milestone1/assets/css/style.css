@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.green_strip{
+    height: 130px;
+    background-color:rgb(0, 150, 138);
+}
+
+.d-flex{
+    display: flex;
+}
+
+.container{
+    background-color: rgba(219, 219, 210);
+    justify-content: center;
+    align-items: center;
+}
+
+.windowApp{
+    width: 1430px;
+    height: 850px;
+    position: relative;
+    top: -70px;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar{
+    height: 100%;
+    background-color: blue;
+    width:40%;
+}
+
+.chat{
+    height: 100%;
+    background-color: red;
+    width: 60%;
+}
