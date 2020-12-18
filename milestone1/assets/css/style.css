@@ -30,44 +30,101 @@
 
 .sidebar{
     height: 100%;
-    background-color: blue;
-    width:40%;
+    width:30%;
 }
 
 .nameUser{
     height: 10%;
-    background-color: pink;
+    background-color: #eaeaea;
+    width: 100%;
+    align-items: center;
+}
+
+.nameUser .imageUser{
+    width: 20%;
+    margin-left: 10px;
+}
+
+.nameUser img{
+    width: 70px;
+    border-radius: 50%;
+}
+
+.nameUser .name{
+    width: 30%;
+}
+
+.nameUser p{
+    text-transform: capitalize;
+    font-size: 20px;
+}
+
+.nameUser .iconUser{
+    width: 50%;
+    text-align: right;
+    font-size: 30px;
+    color: #b1b1b1;
+    margin-right: 20px;
+}
+
+.nameUser .iconUser i{
+    padding: 0 5px;
 }
 
 .notification{
     height: 13%;
-    background-color: turquoise;
+    background-color: #8edafc;
+    align-items: center;
+}
+
+.notification .iconNotification{
+    margin: 0 20px;
+}
+
+.notification .iconNotification i{
+    border-radius: 50%;
+    font-size: 2em;
+    padding: 20px;
+    color: #8edafc;
+    background-color:#f2fbff;
+}
+
+.notification .addNotification p{
+    font-size: 20px;
+}
+
+.notification .addNotification a{
+    color: #5d7485;
+    font-size: 18px;
 }
 
 .contactSearch{
     height: 7%;
-    background-color: wheat;
+    background-color: #eaeaea;
 }
 
 .contactsUser{
     height: 70%;
-    background-color: yellow;
+    background-color: #eaeaea;
+    overflow-y: scroll;
 }
 
 .chat{
     height: 100%;
     background-color: red;
-    width: 60%;
+    width: 70%;
 }
 
 .contactChat{
     height: 10%;
-    background-color: pink;
+    background-color: #eaeaea;
+    border-left: 1px solid #b1b1b1;
 }
 
 .viewChat{
     height: 80%;
-    background-color: blueviolet;
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll; /* Add vertical scrollbar */
 }
 
 .textChat{
@@ -87,4 +144,5 @@
 .inputText{
     width: 100%;
     height: 100%;
+    border-radius: 5px;
 }
