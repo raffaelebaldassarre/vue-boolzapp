@@ -44,8 +44,8 @@
                               </div>
                         </div>
                         <div class="contactsUser">
-                            <li v-for="contact in contacts" class="d-flex">
-                                <img :src="('./assets/img/avatar' + contact.avatar + '.jpg')" alt="" class="w_100p br_50">
+                            <li v-for="(contact,index) in contacts" class="d-flex" @click="activeChat(index)">
+                                <img :src="('./assets/img/avatar' + contact.avatar + '.jpg')" alt="" class="w_100p br_50" >        
                                 <p>{{contact.name}}</p> 
                             </li>
                         </div>
@@ -54,10 +54,10 @@
                     <div class="screenChat">
                         <div class="contactChat d-flex">
                             <div class="imageContactChat">
-                                <img src="./assets/img/avatar_1.jpg" alt="" class="br_50 w_70p">
+                                <img :src="('./assets/img/avatar' + activeContact[0].avatar + '.jpg')" alt="" class="br_50 w_70p">
                             </div>
                             <div class="nameContactChat">
-                                <p>Michele</p>
+                                <p>{{activeContact[0].name}}</p>
                                 <p>Ultimo accesso oggi alle</p>
                             </div>
                             <div class="iconUser">

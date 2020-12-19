@@ -1,6 +1,30 @@
 let app = new Vue ({
     el: "#app",
     data: {
+        activeContact : [
+        {
+        name: 'Michele',
+        avatar: '_1',
+        visible: true,
+        messages: [
+        {
+        date: '10/01/2020 15:30:55',
+        text: 'Hai portato a spasso il cane?',
+        status: 'sent'
+        },
+        {
+        date: '10/01/2020 15:50:00',
+        text: 'Ricordati di dargli da mangiare',
+        status: 'sent'
+        },
+        {
+        date: '10/01/2020 16:15:22',
+        text: 'Tutto fatto!',
+        status: 'received'
+        }
+        ],
+        }
+        ],
         contacts: [
         {
         name: 'Michele',
@@ -85,5 +109,12 @@ let app = new Vue ({
         ],
         },
         ]
+    },
+    methods : {
+        activeChat(index){
+            this.activeContact = [];
+            this.index = index;
+            this.activeContact.push(this.contacts[index]);
+        }
     }
 })

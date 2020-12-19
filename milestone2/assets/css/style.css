@@ -173,6 +173,10 @@ i:hover{
     list-style: none;
     border-bottom: 1px solid #eaeaea;
     background-color: white;
+    cursor: pointer;
+}
+.contactsUser li:hover{
+    background-color: #b1b1b1;
 }
 
 .contactsUser li img{
