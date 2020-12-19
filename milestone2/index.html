@@ -67,7 +67,7 @@
                             </div>
                         </div>
                         <div class="viewChat">
-
+                            <p v-for="message in activeContact[0].messages">{{message.text}}</p>
                         </div>
                         <div class="textChat d-flex">
                             <i class="far fa-smile iconTextChat margin_0"></i>
