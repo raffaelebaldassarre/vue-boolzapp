@@ -2,11 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* UTILITY */
 .d-flex{
     display: flex;
+}
+
+.d-grid{
+    display: grid;
 }
 
 i:hover{
@@ -176,7 +181,7 @@ i:hover{
     cursor: pointer;
 }
 .contactsUser li:hover{
-    background-color: #b1b1b1;
+    background-color: #e9ebeb;
 }
 
 .contactsUser li img{
@@ -210,15 +215,51 @@ i:hover{
 .contactChat .nameContactChat{
     width: calc(50% - 100px);
 }
-
+.contactChat .nameContactChat p:first-child{
+    font-size: 20px;
+}
 .contactChat .nameContactChat p:last-child{
-    color: #a8a8a8;
+    color: #6e7476;
+    margin-top: 5px;
 }
 
 .viewChat{
     height: 80%;
     background-image: url(../img/mine.jpg);
     overflow-y: scroll;
+    flex-direction: column;
+}
+
+.viewChat .messageActive:nth-child(1){
+    margin-top: 50px;
+}
+
+.viewChat p{
+    width: max-content;
+    max-width: calc(50% - 70px);
+    min-width: 280px;
+    min-height: 80px;
+    border-radius: 10px;
+    margin: 10px 70px;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.viewChat p.sent{
+    background-color: #d5f9ba;
+    justify-self: flex-end;
+    align-items: center;
+}
+
+.viewChat p.received {
+    background-color: white;
+    align-items: center;
+}
+
+.viewChat p span{
+    font-size: 15px;
+    justify-self: flex-end;
+    color: #babbba;
 }
 
 .textChat{

@@ -6,6 +6,8 @@
     <title>vue-boolzapp</title>
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
 
 </head>
 <body>
@@ -66,8 +68,17 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
                         </div>
-                        <div class="viewChat">
-                            <p v-for="message in activeContact[0].messages">{{message.text}}</p>
+                        <div class="viewChat d-flex">
+                            <div v-for="message in activeContact[0].messages" class="d-grid messageActive">
+                            <p v-if="message.status == 'sent'" class="sent d-flex d-grid">
+                                {{message.text}} 
+                                <span>{{message.date}}</span> 
+                            </p>
+                            <p v-else class="received d-flex d-grid">
+                                {{message.text}}
+                                <span>{{message.date}}</span>
+                            </p>
+                        </div>
                         </div>
                         <div class="textChat d-flex">
                             <i class="far fa-smile iconTextChat margin_0"></i>
