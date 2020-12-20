@@ -128,6 +128,12 @@ let app = new Vue ({
             this.activeContact[0].messages.push(this.message);
             };
             this.message = { date: '',text : '',status : 'sent'}
+            setTimeout(this.addMessageReceived, 1000);
+        },
+        addMessageReceived() {
+            this.message = { date: '',text : 'ok',status : 'received'}
+            this.activeContact[0].messages.push(this.message);
+            this.message = { date: '',text : '',status : 'sent'}
         }
     }
 })
