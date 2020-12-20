@@ -1,6 +1,13 @@
 let app = new Vue ({
     el: "#app",
     data: {
+        message:
+        {
+        date: '',
+        text : '',
+        status : 'sent'
+        }
+        ,
         activeContact : [
         {
         name: 'Michele',
@@ -113,8 +120,14 @@ let app = new Vue ({
     methods : {
         activeChat(index){
             this.activeContact = [];
-            this.index = index;
             this.activeContact.push(this.contacts[index]);
+            console.log(index);
+        },
+        addMessageSent(){
+            if (this.message.text.length > 0){
+            this.activeContact[0].messages.push(this.message);
+            };
+            this.message = { date: '',text : '',status : 'sent'}
         }
     }
 })
