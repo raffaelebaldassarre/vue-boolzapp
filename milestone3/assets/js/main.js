@@ -117,11 +117,11 @@ let app = new Vue ({
         },
         ]
     },
-    methods : {
+    methods:{
         activeChat(index){
             this.activeContact = [];
             this.activeContact.push(this.contacts[index]);
-            console.log(index);
+            //console.log(index);
         },
         addMessageSent(){
             if (this.message.text.length > 0){
@@ -137,12 +137,18 @@ let app = new Vue ({
             this.timeData();
             this.message = { date: '',text : '',status : 'sent'}
         },
+        addZero(i) {
+            if (i < 10) {
+              i = "0" + i;
+            }
+            return i;
+          },
         timeData() {
             var currentDate = new Date();
-            var LocaleDateString = currentDate.toLocaleDateString();
-            var Hours = currentDate.getHours();
-            var Minutes = currentDate.getMinutes();
-            var Seconds = currentDate.getSeconds()
+            var LocaleDateString = this.addZero(currentDate.toLocaleDateString());
+            var Hours = this.addZero(currentDate.getHours());
+            var Minutes = this.addZero(currentDate.getMinutes());
+            var Seconds = this.addZero(currentDate.getSeconds());
             var time = LocaleDateString + " " + Hours + ":" + Minutes + ":" + Seconds;
             this.message.date = time;
         }
