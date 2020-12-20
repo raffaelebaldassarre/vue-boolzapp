@@ -125,15 +125,26 @@ let app = new Vue ({
         },
         addMessageSent(){
             if (this.message.text.length > 0){
-            this.activeContact[0].messages.push(this.message);
+                this.activeContact[0].messages.push(this.message);
             };
-            this.message = { date: '',text : '',status : 'sent'}
+            this.timeData();
+            this.message = { date: '' , text : '',status : 'sent'};
             setTimeout(this.addMessageReceived, 1000);
         },
         addMessageReceived() {
-            this.message = { date: '',text : 'ok',status : 'received'}
+            this.message = { date: '' ,text : 'ok',status : 'received'}
             this.activeContact[0].messages.push(this.message);
+            this.timeData();
             this.message = { date: '',text : '',status : 'sent'}
+        },
+        timeData() {
+            var currentDate = new Date();
+            var LocaleDateString = currentDate.toLocaleDateString();
+            var Hours = currentDate.getHours();
+            var Minutes = currentDate.getMinutes();
+            var Seconds = currentDate.getSeconds()
+            var time = LocaleDateString + " " + Hours + ":" + Minutes + ":" + Seconds;
+            this.message.date = time;
         }
     }
 })
