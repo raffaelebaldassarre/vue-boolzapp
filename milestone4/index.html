@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue-boolzapp</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet"href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+
+</head>
+<body>
+    <div id="app">
+    <main class="site_content d-flex">
+        <div class="green_strip"></div>
+            <div class="container">
+                <div class="windowApp d-flex">
+                    <div class="sidebar">
+                        <div class="nameUser d-flex">
+                            <div class="imageUser">
+                                <img src="./assets/img/avatar_io.jpg" alt="" class="w_70p br_50">
+                            </div>
+                            <div class="name">
+                            <p>nome utente</p>
+                            </div>
+                            <div class="iconUser">
+                                <i class="fas fa-circle-notch"></i>
+                                <i class="fas fa-comment-alt"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="notification d-flex">
+                            <div class="iconNotification">
+                                <i class="fas fa-bell-slash"> </i>
+                            </div>
+                            <div class="addNotification">
+                                <p>Ricevi notifiche di nuovi messaggi</p>
+                                <a href="#">Attiva notifiche desktop</a>
+                            </div>
+                        </div>
+                        <div class="contactSearch">
+                            <div class="input-container">
+                                <i class="fas fa-search"></i>
+                                <input class="inputTextSearch" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search"> 
+                              </div>
+                        </div>
+                        <div class="contactsUser">
+                            <li v-for="(contact,index) in filteredContact" class="d-flex" @click="activeChat(index)">
+                                <img :src="('./assets/img/avatar' + contact.avatar + '.jpg')" alt="" class="w_100p br_50">        
+                                <p>{{contact.name}}</p> 
+                            </li>
+                        </div>
+                    </div>
+
+                    <div class="screenChat">
+                        <div class="contactChat d-flex">
+                            <div class="imageContactChat">
+                                <img :src="('./assets/img/avatar' + activeContact[0].avatar + '.jpg')" alt="" class="br_50 w_70p">
+                            </div>
+                            <div class="nameContactChat">
+                                <p>{{activeContact[0].name}}</p>
+                                <p>Ultimo accesso oggi alle</p>
+                            </div>
+                            <div class="iconUser">
+                                <i class="fas fa-search"></i>
+                                <i class="fas fa-paperclip"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="viewChat d-flex">
+                            <div v-for="message in activeContact[0].messages" class="d-grid messageActive">
+                            <p v-if="message.status == 'sent'" class="sent d-flex d-grid">
+                                {{message.text}} 
+                                <span>{{message.date}}</span> 
+                            </p>
+                            <p v-else class="received d-flex d-grid">
+                                {{message.text}}
+                                <span>{{message.date}}</span>
+                            </p>
+                        </div>
+                        </div>
+                        <div class="textChat d-flex">
+                            <i class="far fa-smile iconTextChat margin_0"></i>
+                            <div class="inputType d-flex">
+                                <input class="inputText" type="text" name="message" v-model="message.text" placeholder="Scrivi un messaggio" v-on:keyup.enter="addMessageSent">
+                            </div> 
+                            <i class="fas fa-microphone iconTextChat mg_0"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
