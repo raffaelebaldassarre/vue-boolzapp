@@ -96,6 +96,88 @@ let app = new Vue ({
         }
         ],
         },
+        {
+        name: 'Andrea',
+        avatar: '_5',
+        visible: true,
+        messages: [
+        {
+        date: '10/01/2020 15:30:55',
+        text: 'oi ci sei?',
+        status: 'sent'
+        },
+        {
+        date: '10/01/2020 15:50:00',
+        text: 'sei sveglio???',
+        status: 'sent'
+        },
+        {
+        date: '10/01/2020 16:15:22',
+        text: 'Che vuoi?',
+        status: 'received'
+        }
+        ],
+        },
+        {
+        name: 'Federico',
+        avatar: '_6',
+        visible: true,
+        messages: [
+        {
+        date: '20/03/2020 16:30:00',
+        text: 'Ciao come stai?',
+        status: 'sent'
+        },
+        {
+        date: '20/03/2020 16:30:55',
+        text: 'Bene grazie! Come sta andando il corso?',
+        status: 'received'
+        },
+        {
+        date: '20/03/2020 16:35:00',
+        text: 'Bene bene, questo esercizio è una bomba',
+        status: 'sent'
+        }
+        ],
+        },
+        {name: 'Angelo',
+        avatar: '_7',
+        visible: true,
+        messages: [
+        {
+        date: '28/03/2020 10:10:40',
+        text: 'Ciao, da quanto tempo!!!',
+        status: 'received'
+        },
+        {
+        date: '28/03/2020 10:20:10',
+        text: 'eh si è vero, come stai?',
+        status: 'sent'
+        },
+        {
+        date: '28/03/2020 16:15:22',
+        text: 'Bene, dobbiamo verdci uno di questi giorni.',
+        status: 'received'
+        }
+        ],
+        },
+        {
+        name: 'Marco',
+        avatar: '_8',
+        visible: true,
+        messages: [
+        {
+        date: '10/01/2020 15:30:55',
+        text: 'Hai sentito il discorso di Conte',
+        status: 'sent'
+        },
+        {
+        date: '10/01/2020 15:50:00',
+        text: 'Si, lasciamo perdere',
+        status: 'received'
+        }
+        ],
+        }
         ]
     },
     methods:{
