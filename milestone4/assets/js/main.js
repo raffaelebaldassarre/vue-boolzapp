@@ -1,6 +1,9 @@
 let app = new Vue ({
     el: "#app",
     data: {
+        lastAccess: {
+            date: ""
+        },
         message:
         {
         date: '',
@@ -97,9 +100,10 @@ let app = new Vue ({
     },
     methods:{
         activeChat(index){
+            this.lastAccess.date = "";
             this.activeContact = [];
             this.activeContact.push(this.filteredContact[index]);
-            console.log(index);
+            //console.log(index);
         },
         addMessageSent(){
             if (this.message.text.length > 0){
@@ -113,7 +117,9 @@ let app = new Vue ({
             this.message = { date: '' ,text : 'ok',status : 'received'}
             this.activeContact[0].messages.push(this.message);
             this.timeData();
-            this.message = { date: '',text : '',status : 'sent'}
+            this.message = { date: '',text : '',status : 'sent'};
+            this.lastTimeData();
+            this.activeContact[0].date = this.lastAccess.date;
         },
         addZero(i) {
             if (i < 10) {
@@ -129,6 +135,14 @@ let app = new Vue ({
             var Seconds = this.addZero(currentDate.getSeconds());
             var time = LocaleDateString + " " + Hours + ":" + Minutes + ":" + Seconds;
             this.message.date = time;
+        },
+        lastTimeData() {
+            var currentDate = new Date();
+            var Hours = this.addZero(currentDate.getHours());
+            var Minutes = this.addZero(currentDate.getMinutes());
+            var Seconds = this.addZero(currentDate.getSeconds());
+            var lastTime = Hours + ":" + Minutes + ":" + Seconds;
+            this.lastAccess.date = lastTime;
         }
     },
     computed : {
