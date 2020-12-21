@@ -11,7 +11,7 @@ let app = new Vue ({
         status : 'sent'
         }
         ,
-        activeContact : [],
+        activeContact : 0,
         search: '',
         contacts: [
         {
@@ -182,26 +182,26 @@ let app = new Vue ({
     },
     methods:{
         activeChat(index){
-            this.lastAccess.date = "";
-            this.activeContact = [];
-            this.activeContact.push(this.filteredContact[index]);
+            //this.lastAccess.date = "";
+            this.activeContact = index;
             //console.log(index);
         },
         addMessageSent(){
-            if (this.message.text.length > 0){
-                this.activeContact[0].messages.push(this.message);
-            };
             this.timeData();
+            if (this.message.text.length > 0){
+                this.contacts[this.activeContact].messages.push(this.message);
+            };
             this.message = { date: '' , text : '',status : 'sent'};
-            setTimeout(this.addMessageReceived, 1000);
+            setTimeout(this.addMessageReceived, 1000); 
         },
         addMessageReceived() {
+            console.log(this);
             this.message = { date: '' ,text : 'ok',status : 'received'}
-            this.activeContact[0].messages.push(this.message);
             this.timeData();
+            this.contacts[this.activeContact].messages.push(this.message);
             this.message = { date: '',text : '',status : 'sent'};
             this.lastTimeData();
-            this.activeContact[0].date = this.lastAccess.date;
+            //this.contacts[this.activeContact].date = this.lastAccess.date;
         },
         addZero(i) {
             if (i < 10) {
@@ -225,6 +225,7 @@ let app = new Vue ({
             var Seconds = this.addZero(currentDate.getSeconds());
             var lastTime = Hours + ":" + Minutes + ":" + Seconds;
             this.lastAccess.date = lastTime;
+            
         }
     },
     computed : {
@@ -233,10 +234,10 @@ let app = new Vue ({
                 return contactFilter.name.toLowerCase().includes(this.search.toLowerCase());
             });
          }
-    },
-    created : function (){
-        this.activeContact[0] = this.contacts[0];
-    }
+     },
+    // created : function (){
+    //     this.activeContact[0] = this.contacts[0];
+    // }
 })
 
 //add Scroll Bottom

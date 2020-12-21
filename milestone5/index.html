@@ -48,7 +48,7 @@
                         <div class="contactsUser">
                             <li v-for="(contact,index) in filteredContact" class="d-flex" @click="activeChat(index)">
                                 <img :src="('./assets/img/avatar' + contact.avatar + '.jpg')" alt="" class="w_100p br_50">        
-                                <p>{{contact.name}}</p> 
+                                <p>{{contact.name}} {{contact.messages[contact.messages.length - 1].text}} {{contact.messages[contact.messages.length - 1].date}}</p>
                             </li>
                         </div>
                     </div>
@@ -56,11 +56,12 @@
                     <div class="screenChat">
                         <div class="contactChat d-flex">
                             <div class="imageContactChat">
-                                <img :src="('./assets/img/avatar' + activeContact[0].avatar + '.jpg')" alt="" class="br_50 w_70p">
+                                <img :src="('./assets/img/avatar' + contacts[activeContact].avatar + '.jpg')" alt="" class="br_50 w_70p">
                             </div>
                             <div class="nameContactChat">
-                                <p>{{activeContact[0].name}}</p>
-                                <p>Ultimo accesso oggi alle {{activeContact[0].date}}</p>
+                                <p>{{contacts[activeContact].name}}</p>
+                                <p>Ultimo accesso oggi alle <!--{{contacts[activeContact].date}}-->
+                                    {{lastAccess.date}}</p>
                             </div>
                             <div class="iconUser">
                                 <i class="fas fa-search"></i>
@@ -69,7 +70,7 @@
                             </div>
                         </div>
                         <div class="viewChat d-flex">
-                            <div v-for="message in activeContact[0].messages" class="d-grid messageActive">
+                            <div v-for="message in contacts[activeContact].messages" class="d-grid messageActive">
                             <p v-if="message.status == 'sent'" class="sent d-flex d-grid">
                                 {{message.text}} 
                                 <span>{{message.date}}</span> 
