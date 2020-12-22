@@ -236,6 +236,12 @@ let app = new Vue ({
         //Funzione per azzerare l'ultimo accesso dopo 1 minuto di inattività
         lastAccessTimeout(){
             this.lastAccess.date = '';
+        },
+        //Seleziono la viewChat per manipolarlo con scroll
+        scrollToView(){
+        let viewChat = this.$refs.viewChat;
+        let viewChatScroll = viewChat.scrollHeight;
+        viewChat.scrollTop = viewChatScroll;
         }
     },
     computed : {
@@ -244,5 +250,12 @@ let app = new Vue ({
                 return contactFilter.name.toLowerCase().includes(this.search.toLowerCase());
             });
          }
+     },
+     //scrollTop automatico
+     mounted () {
+        this.scrollToView();
+     },
+     updated () {
+         this.scrollToView();
      }
-})
+});

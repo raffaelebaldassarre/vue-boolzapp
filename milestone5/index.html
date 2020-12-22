@@ -48,7 +48,7 @@
                         <div class="contactsUser">
                             <li v-for="(contact,index) in filteredContact" class="d-flex" @click="activeChat(index)">
                                 <img :src="('./assets/img/avatar' + contact.avatar + '.jpg')" alt="" class="w_100p br_50">
-                                <div class="cardContact d-flex">    
+                                <div class="cardContact d-flex">
                                     <p id="name">{{contact.name}}</p>
                                     <p id="date">{{contact.messages[contact.messages.length - 1].date}}</p>
                                     <p id="text">{{contact.messages[contact.messages.length - 1].text}}</p>
@@ -72,7 +72,8 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
                         </div>
-                        <div class="viewChat d-flex">
+                            <!-- con ref do una referenza richiamabile dalla funzione scrolltoview -->
+                        <div class="viewChat d-flex" id="viewChat" ref="viewChat">
                             <div v-for="message in contacts[activeContact].messages" class="d-grid messageActive">
                             <p v-if="message.status == 'sent'" class="sent d-grid">
                                 {{message.text}} 
