@@ -2,7 +2,7 @@ let app = new Vue ({
     el: "#app",
     data: {
         lastAccess: {
-            date: ""
+            date: ''
         },
         message:
         {
@@ -182,7 +182,7 @@ let app = new Vue ({
     },
     methods:{
         activeChat(index){
-            //this.lastAccess.date = "";
+            this.lastAccess.date = "";
             this.activeContact = index;
             //console.log(index);
         },
@@ -192,16 +192,20 @@ let app = new Vue ({
                 this.contacts[this.activeContact].messages.push(this.message);
             };
             this.message = { date: '' , text : '',status : 'sent'};
-            setTimeout(this.addMessageReceived, 1000); 
+            setTimeout(this.addMessageReceived, 1000);
         },
         addMessageReceived() {
-            console.log(this);
             this.message = { date: '' ,text : 'ok',status : 'received'}
             this.timeData();
             this.contacts[this.activeContact].messages.push(this.message);
             this.message = { date: '',text : '',status : 'sent'};
+            // visualizza ultimo accesso con set orologio diverso
+            if(this.lastAccess.date == ''){
             this.lastTimeData();
-            //this.contacts[this.activeContact].date = this.lastAccess.date;
+            this.contacts[this.activeContact].date = this.lastAccess.date;
+            //1 minuto per entrare in inattività
+            setTimeout(this.lastAccessTimeout, 60000);
+            }
         },
         addZero(i) {
             if (i < 10) {
@@ -209,6 +213,7 @@ let app = new Vue ({
             }
             return i;
           },
+          //Funzione per stampare data di invio/ricezione messaggio
         timeData() {
             var currentDate = new Date();
             var LocaleDateString = this.addZero(currentDate.toLocaleDateString());
@@ -218,6 +223,7 @@ let app = new Vue ({
             var time = LocaleDateString + " " + Hours + ":" + Minutes + ":" + Seconds;
             this.message.date = time;
         },
+        //Funzione per stampare ultimo accesso con formato diverso
         lastTimeData() {
             var currentDate = new Date();
             var Hours = this.addZero(currentDate.getHours());
@@ -225,7 +231,11 @@ let app = new Vue ({
             var Seconds = this.addZero(currentDate.getSeconds());
             var lastTime = Hours + ":" + Minutes + ":" + Seconds;
             this.lastAccess.date = lastTime;
-            
+
+        },
+        //Funzione per azzerare l'ultimo accesso dopo 1 minuto di inattività
+        lastAccessTimeout(){
+            this.lastAccess.date = '';
         }
     },
     computed : {
@@ -234,10 +244,5 @@ let app = new Vue ({
                 return contactFilter.name.toLowerCase().includes(this.search.toLowerCase());
             });
          }
-     },
-    // created : function (){
-    //     this.activeContact[0] = this.contacts[0];
-    // }
+     }
 })
-
-//add Scroll Bottom

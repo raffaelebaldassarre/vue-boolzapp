@@ -47,8 +47,12 @@
                         </div>
                         <div class="contactsUser">
                             <li v-for="(contact,index) in filteredContact" class="d-flex" @click="activeChat(index)">
-                                <img :src="('./assets/img/avatar' + contact.avatar + '.jpg')" alt="" class="w_100p br_50">        
-                                <p>{{contact.name}} {{contact.messages[contact.messages.length - 1].text}} {{contact.messages[contact.messages.length - 1].date}}</p>
+                                <img :src="('./assets/img/avatar' + contact.avatar + '.jpg')" alt="" class="w_100p br_50">
+                                <div class="cardContact d-flex">    
+                                    <p id="name">{{contact.name}}</p>
+                                    <p id="date">{{contact.messages[contact.messages.length - 1].date}}</p>
+                                    <p id="text">{{contact.messages[contact.messages.length - 1].text}}</p>
+                                </div>
                             </li>
                         </div>
                     </div>
@@ -60,8 +64,7 @@
                             </div>
                             <div class="nameContactChat">
                                 <p>{{contacts[activeContact].name}}</p>
-                                <p>Ultimo accesso oggi alle <!--{{contacts[activeContact].date}}-->
-                                    {{lastAccess.date}}</p>
+                                <p>Ultimo accesso oggi alle {{contacts[activeContact].date}}</p>
                             </div>
                             <div class="iconUser">
                                 <i class="fas fa-search"></i>
@@ -71,11 +74,11 @@
                         </div>
                         <div class="viewChat d-flex">
                             <div v-for="message in contacts[activeContact].messages" class="d-grid messageActive">
-                            <p v-if="message.status == 'sent'" class="sent d-flex d-grid">
+                            <p v-if="message.status == 'sent'" class="sent d-grid">
                                 {{message.text}} 
                                 <span>{{message.date}}</span> 
                             </p>
-                            <p v-else class="received d-flex d-grid">
+                            <p v-else class="received d-grid">
                                 {{message.text}}
                                 <span>{{message.date}}</span>
                             </p>
