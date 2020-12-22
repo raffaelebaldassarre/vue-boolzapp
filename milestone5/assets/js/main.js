@@ -237,7 +237,7 @@ let app = new Vue ({
         lastAccessTimeout(){
             this.lastAccess.date = '';
         },
-        //Seleziono la viewChat per manipolarlo con scroll
+        //Seleziono la viewChat con $refs per manipolarlo con scroll
         scrollToView(){
         let viewChat = this.$refs.viewChat;
         let viewChatScroll = viewChat.scrollHeight;
@@ -255,6 +255,7 @@ let app = new Vue ({
      mounted () {
         this.scrollToView();
      },
+     //updated aggiorna computed ogni volta che la finestra varia di dimensioni
      updated () {
          this.scrollToView();
      }
