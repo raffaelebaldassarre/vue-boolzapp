@@ -12,7 +12,7 @@ let app = new Vue ({
         }
         ,
         activeContact : 0,
-        counter: 0,
+        messageSelect : 0,
         search: '',
         contacts: [
         {
@@ -248,6 +248,7 @@ let app = new Vue ({
         //Stampa la posizione del messaggio
         messageSelSent(counter){
             this.messageSelect = counter;
+            document.getElementById("delMess").style="display:block"
             console.log(counter);
         },messageSelRec(counter){
             this.messageSelect = counter;

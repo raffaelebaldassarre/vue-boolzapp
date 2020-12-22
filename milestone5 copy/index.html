@@ -75,16 +75,21 @@
                             <!-- con ref do una referenza richiamabile dalla funzione scrolltoview -->
                         <div class="viewChat d-flex" id="viewChat" ref="viewChat">
                             <div v-for="(message,counter) in contacts[activeContact].messages" class="d-grid messageActive">
-                            <p v-if="message.status == 'sent'" class="sent d-grid">
+                            <div v-if="message.status == 'sent'" class="sent d-grid">
                                 {{message.text}} 
                                 <span>{{message.date}}</span>
-                                <i class="fas fa-angle-down" @click="messageSelSent(counter)"></i> 
-                            </p>
-                            <p v-else class="received d-grid">
+                                <p class="infoCard">
+                                    <i class="fas fa-angle-down" @click="messageSelSent(counter)"></i>
+                                    <span id="delMess">Elimina Messaggio</span>
+                                </p>
+                            </div>
+                            <div v-else class="received d-grid">
                                 {{message.text}}
                                 <span>{{message.date}}</span>
-                                <i class="fas fa-angle-down" @click="messageSelRec(counter)"></i>
-                            </p>
+                                <span class="infoCard">
+                                    <i class="fas fa-angle-down" @click="messageSelRec(counter)"></i>
+                                </span>
+                            </div>
                         </div>
                         </div>
                         <div class="textChat d-flex">

@@ -35,6 +35,10 @@ i:hover{
     width: 100px;
 }
 
+.d-inline{
+    display: inline;
+}
+
 /* //UTILITY */
 .site_content{
     width: 100vw;
@@ -259,29 +263,7 @@ i:hover{
     margin-top: 50px;
 }
 
-/* set fa-angle */
-.viewChat p{
-    position: relative;
-}
-
-.viewChat p i{
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 10px;
-    color: #b1b1b1;
-}
-
-.viewChat p:hover i{
-    display: block;
-}
-
-.viewChat p i:hover{
-    color: black;
-}
-/* set fa-angle */
-
-.viewChat p{
+.viewChat div{
     width: max-content;
     max-width: calc(50% - 70px);
     min-width: 280px;
@@ -292,22 +274,55 @@ i:hover{
     font-size: 25px;
 }
 
-.viewChat p.sent{
+.viewChat div .sent{
     background-color: #d5f9ba;
     justify-self: flex-end;
     align-items: center;
+    position: relative;
 }
 
-.viewChat p.received {
+.viewChat div .received {
     background-color: white;
     align-items: center;
+    position: relative;
 }
 
-.viewChat p span{
+.viewChat  div span{
     font-size: 15px;
     justify-self: flex-end;
     color: #babbba;
 }
+
+
+.viewChat div i:hover{
+    color: black;
+}
+
+.viewChat div .infoCard i{
+    display: none;
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 20px;
+}
+
+.viewChat div:hover .infoCard i{
+    display: block;
+}
+
+
+/* far comparire il messaggio boom passando il mouse su icona angle-down */
+.viewChat div .infoCard span{
+    display: none;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
+
+/* .viewChat div .infoCard:hover span{
+    display: block;
+} */
+/* //far comparire il messaggio boom passando il mouse su icona angle-down */
 
 .textChat{
     height: 80px;
