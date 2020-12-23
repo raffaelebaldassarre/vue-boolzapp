@@ -12,7 +12,7 @@ let app = new Vue ({
         }
         ,
         activeContact : 0,
-        counter: 0,
+        messageSelect: 0,
         search: '',
         contacts: [
         {
@@ -245,12 +245,17 @@ let app = new Vue ({
         let viewChatScroll = viewChat.scrollHeight;
         viewChat.scrollTop = viewChatScroll;
         },
-        //Stampa la posizione del messaggio
+        //Stampa la posizione del messaggio ed elimina messaggio con il click
         messageSelSent(counter){
             this.messageSelect = counter;
             console.log(counter);
-        },messageSelRec(counter){
+            this.contacts[this.activeContact].messages[this.messageSelect].text = "Messaggio Eliminato";
+            this.contacts[this.activeContact].messages[this.messageSelect].date = "";
+        },
+        messageSelRec(counter){
             this.messageSelect = counter;
+            this.contacts[this.activeContact].messages[this.messageSelect].text = "Messaggio Eliminato";
+            this.contacts[this.activeContact].messages[this.messageSelect].date = "";
             console.log(counter);
         },
     },
