@@ -73,18 +73,26 @@
                             </div>
                         </div>
                             <!-- con ref do una referenza richiamabile dalla funzione scrolltoview -->
-                        <div class="viewChat d-flex" id="viewChat" ref="viewChat">
-                            <div v-for="(message,counter) in contacts[activeContact].messages" class="d-grid messageActive">
-                            <p v-if="message.status == 'sent'" class="sent d-grid">
-                                {{message.text}} 
-                                <span>{{message.date}}</span>
-                                <i class="fas fa-angle-down" @click="messageSelSent(counter)"></i> 
-                            </p>
-                            <p v-else class="received d-grid">
-                                {{message.text}}
-                                <span>{{message.date}}</span>
-                                <i class="fas fa-angle-down" @click="messageSelRec(counter)"></i>
-                            </p>
+                        <div class="viewChat" id="viewChat" ref="viewChat">
+                            <div v-for="(message,counter) in contacts[activeContact].messages" class="messageActive d-flex">
+                            <div v-if="message.status == 'sent'" class="sent d-flex">
+                                <p v-if="message.text != '...messaggio eliminato'">{{message.text}}</p>
+                                <p v-else class="messageEliminated">{{message.text}}</p>
+                                <p class="date">{{message.date}}</p>
+                                <i v-if="message.text != '...messaggio eliminato'" class="fas fa-angle-down" @click="infoBoxDisactive=!infoBoxDisactive"><div :class="{infoBoxDisactive}" class="infoBox" v-on:mouseleave="infoBoxDisactive=!infoBoxDisactive">
+                                    <p>Message Info</p>
+                                    <p @click="messageSelSent(counter)">Delete Message</p>
+                                </div></i>
+                            </div>
+                            <div v-else class="received d-flex">
+                                <p v-if="message.text != '...messaggio eliminato'">{{message.text}}</p>
+                                <p v-else class="messageEliminated">{{message.text}}</p>
+                                <p class="date">{{message.date}}</p>
+                                <i v-if="message.text != '...messaggio eliminato'" class="fas fa-angle-down" @click="infoBoxDisactive=!infoBoxDisactive"><div :class="{infoBoxDisactive}" class="infoBox" v-on:mouseleave="infoBoxDisactive=!infoBoxDisactive">
+                                    <p>Message Info</p>
+                                    <p @click="messageSelRec(counter)">Delete Message</p>
+                                </div></i>
+                            </div>
                         </div>
                         </div>
                         <div class="textChat d-flex">

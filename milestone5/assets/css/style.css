@@ -10,10 +10,6 @@
     display: flex;
 }
 
-.d-grid{
-    display: grid;
-}
-
 i:hover{
     color: black;
     cursor: pointer;
@@ -252,6 +248,9 @@ i:hover{
     height: 80%;
     background-image: url(../img/mine.jpg);
     overflow-y: scroll;
+}
+
+.viewChat .messageActive{
     flex-direction: column;
 }
 
@@ -259,29 +258,7 @@ i:hover{
     margin-top: 50px;
 }
 
-/* set fa-angle */
-.viewChat p{
-    position: relative;
-}
-
-.viewChat p i{
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 10px;
-    color: #b1b1b1;
-}
-
-.viewChat p:hover i{
-    display: block;
-}
-
-.viewChat p i:hover{
-    color: black;
-}
-/* set fa-angle */
-
-.viewChat p{
+.viewChat .sent, .viewChat .received{
     width: max-content;
     max-width: calc(50% - 70px);
     min-width: 280px;
@@ -292,21 +269,72 @@ i:hover{
     font-size: 25px;
 }
 
-.viewChat p.sent{
+.viewChat .sent{
     background-color: #d5f9ba;
-    justify-self: flex-end;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-self: flex-end;
 }
 
-.viewChat p.received {
+.viewChat .received {
     background-color: white;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.viewChat p span{
+.viewChat p.date{
     font-size: 15px;
-    justify-self: flex-end;
     color: #babbba;
+    align-self: end;
+}
+
+.viewChat p.messageEliminated{
+    color:#b1b1b1;
+    text-align: center;
+}
+
+/* set fa-angle */
+.viewChat .received, .viewChat .sent{
+    position: relative;
+}
+
+.viewChat i{
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 10px;
+    color: #b1b1b1;
+}
+
+.viewChat .received:hover i,.viewChat .sent:hover i{
+    display: block;
+}
+
+.viewChat .received i:hover,.viewChat .sent i:hover{
+    color: black;
+}
+/* /set fa-angle */
+
+.infoBoxDisactive{
+    display: none;
+}
+
+.infoBox{
+    background-color: white;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    width: max-content;
+    border-radius: 5px;
+    box-shadow: 1px 1px #888888;
+}
+
+.infoBox p{
+    padding: 10px;
+}
+
+.infoBox p:hover{
+    background-color: #b1b1b1;
 }
 
 .textChat{

@@ -11,6 +11,7 @@ let app = new Vue ({
         status : 'sent'
         }
         ,
+        infoBoxDisactive : true,
         activeContact : 0,
         messageSelect: 0,
         search: '',
@@ -157,7 +158,7 @@ let app = new Vue ({
         },
         {
         date: '28/03/2020 16:15:22',
-        text: 'Bene, dobbiamo verdci uno di questi giorni.',
+        text: 'Bene, dobbiamo vederci uno di questi giorni.',
         status: 'received'
         }
         ],
@@ -249,15 +250,15 @@ let app = new Vue ({
         messageSelSent(counter){
             this.messageSelect = counter;
             console.log(counter);
-            this.contacts[this.activeContact].messages[this.messageSelect].text = "Messaggio Eliminato";
+            this.contacts[this.activeContact].messages[this.messageSelect].text = "...messaggio eliminato";
             this.contacts[this.activeContact].messages[this.messageSelect].date = "";
         },
         messageSelRec(counter){
             this.messageSelect = counter;
-            this.contacts[this.activeContact].messages[this.messageSelect].text = "Messaggio Eliminato";
+            this.contacts[this.activeContact].messages[this.messageSelect].text = "...messaggio eliminato";
             this.contacts[this.activeContact].messages[this.messageSelect].date = "";
             console.log(counter);
-        },
+        }
     },
     computed : {
         filteredContact() {
